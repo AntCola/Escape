@@ -3,4 +3,5 @@
 Attic::Attic()
 {
 	goldPieces = 10;
+	roomName = "Attic";
 }

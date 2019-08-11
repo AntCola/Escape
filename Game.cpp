@@ -49,4 +49,7 @@ void Game::printPtrs()
 	}
 }
 
+void Game::gameFlow()
+{
 
+}

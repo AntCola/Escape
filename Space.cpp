@@ -8,6 +8,7 @@ Space::Space()
 	right = nullptr;
 	left = nullptr;
 	goldPieces = 0;
+	roomName = "";
 }
 
 int Space::getGP()

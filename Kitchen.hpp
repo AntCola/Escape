@@ -2,6 +2,7 @@
 #define KITCHEN_HPP
 #include "Space.hpp"
 #include <iostream>
+#include <string>
 
 class Kitchen : public Space
 {

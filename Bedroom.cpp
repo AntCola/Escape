@@ -3,4 +3,5 @@
 Bedroom::Bedroom()
 {
 	goldPieces = 100;
+	roomName = "Bedroom";
 }

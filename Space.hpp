@@ -1,5 +1,6 @@
 #ifndef SPACE_HPP
 #define SPACE_HPP
+#include <string>
 
 class Space
 {
@@ -9,6 +10,7 @@ protected:
 	Space* right;
 	Space* left;
 	int goldPieces;
+	std::string roomName;
 public:
 	Space();
 	int getGP();
@@ -20,6 +22,7 @@ public:
 	Space* getDown(Space*);
 	Space* getLeft(Space*);
 	Space* getRight(Space*);
+	virtual std::string getRoom();
 };
 
 #endif

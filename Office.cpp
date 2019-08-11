@@ -3,4 +3,6 @@
 Office::Office()
 {
 	goldPieces = 25;
+	roomName = "Office";
 }
+
