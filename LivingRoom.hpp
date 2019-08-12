@@ -8,6 +8,7 @@ class LivingRoom : public Space
 {
 public:
 	LivingRoom();
+	void interact();
 };
 
 #endif

@@ -10,6 +10,7 @@ class Bedroom : public Space
 private:
 public:
 	Bedroom();
+	void interact();
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "Space.hpp"
-
+#include <vector>
+#include <iostream>
 
 Space::Space()
 {
@@ -9,6 +10,13 @@ Space::Space()
 	left = nullptr;
 	goldPieces = 0;
 	roomName = "";
+	hasLivingKey = false;
+	hasBedroomKey = false;
+	hasAtticKey = false;
+	hasOfficeKey = false;
+	hasPatioKey = false;
+	gameLost = false;
+	gameWon = false;
 }
 
 int Space::getGP()
@@ -54,4 +62,23 @@ Space* Space::getRight(Space* obj)
 Space* Space::getLeft(Space* obj)
 {
 	return obj->left;
+}
+
+std::string Space::getRoom()
+{
+	return roomName;
+}
+
+bool Space::checkInventory(std::string item)
+{
+	bool containsItem = false;
+	if (std::find(inventory.begin(), inventory.end(), item) != inventory.end())
+	{
+		containsItem = true;
+	}
+	else
+	{
+		std::cout << "The user does not have " << item << " in their inventory." << std::endl;
+		containsItem = false;
+	}
 }

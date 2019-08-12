@@ -7,6 +7,7 @@ class Patio : public Space
 {
 public:
 	Patio();
+	void interact();
 };
 
 #endif

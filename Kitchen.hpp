@@ -8,6 +8,7 @@ class Kitchen : public Space
 {
 public:
 	Kitchen();
+	void interact();
 };
 
 #endif 
