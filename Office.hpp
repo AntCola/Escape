@@ -7,7 +7,7 @@ class Office : public Space
 {
 public:
 	Office();
-	void interact();
+	int interact();
 };
 
 #endif

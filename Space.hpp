@@ -20,8 +20,6 @@ protected:
 	bool hasOfficeKey;
 	bool hasBedroomKey;
 	bool hasPatioKey;
-	bool gameLost;
-	bool gameWon;
 public:
 	Space();
 	int getGP();
@@ -34,8 +32,13 @@ public:
 	Space* getLeft(Space*);
 	Space* getRight(Space*);
 	virtual std::string getRoom();
-	virtual void interact() = 0;
-	bool checkInventory(std::string);
+	virtual int interact() = 0;
+	int getNumSteps();
+	bool getLivingKey();
+	bool getAtticKey();
+	bool getOfficeKey();
+	bool getBedroomKey();
+	bool getPatioKey();
 
 };
 

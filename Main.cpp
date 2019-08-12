@@ -1,8 +1,9 @@
 #include "Space.hpp"
 #include "Game.hpp"
+#include "Menu.hpp"
 
 int main()
 {
-	Game game1;
-	game1.printPtrs();
+	menu();
+	return 0;
 }

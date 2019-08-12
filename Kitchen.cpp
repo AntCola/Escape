@@ -6,7 +6,7 @@ Kitchen::Kitchen()
 	roomName = "Kitchen";
 }
 
-void Kitchen::interact()
+int Kitchen::interact()
 {
 	if (!hasLivingKey)
 	{
@@ -32,5 +32,6 @@ void Kitchen::interact()
 	{
 		std::cout << "You hvae all available keys in this room, there is nothing to search for." << std::endl;
 	}
+	return numSteps;
 }
 

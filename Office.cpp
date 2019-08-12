@@ -6,7 +6,7 @@ Office::Office()
 	roomName = "Office";
 }
 
-void Office::interact()
+int Office::interact()
 {
 	if (!hasBedroomKey && !hasPatioKey)
 	{
@@ -30,7 +30,7 @@ void Office::interact()
 			}
 			else
 			{
-				std::cout << "You have chose to continue without searching the bedroom more." << std::endl;
+				std::cout << "You have chose to continue without searching the office more." << std::endl;
 			}
 		}
 		else
@@ -78,5 +78,7 @@ void Office::interact()
 	{
 		std::cout << "There is nothing left to find in this room." << std::endl;
 	}
+
+	return numSteps;
 }
 

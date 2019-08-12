@@ -8,7 +8,7 @@ class Attic : public Space
 {
 public:
 	Attic();
-	void interact();
+	int interact();
 };
 
 #endif

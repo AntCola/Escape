@@ -13,9 +13,13 @@ class Player
 {
 private:
 	Space* userLocation;
+	std::vector<std::string> inventory;
 public:
+	Player();
 	void setUserLocation(Space*);
 	Space* getUserLocation();
+	void addInventory(std::string);
+	void printInventory();
 };
 
 #endif

@@ -15,8 +15,7 @@ Space::Space()
 	hasAtticKey = false;
 	hasOfficeKey = false;
 	hasPatioKey = false;
-	gameLost = false;
-	gameWon = false;
+	numSteps = 0;
 }
 
 int Space::getGP()
@@ -69,16 +68,33 @@ std::string Space::getRoom()
 	return roomName;
 }
 
-bool Space::checkInventory(std::string item)
+
+int Space::getNumSteps()
 {
-	bool containsItem = false;
-	if (std::find(inventory.begin(), inventory.end(), item) != inventory.end())
-	{
-		containsItem = true;
-	}
-	else
-	{
-		std::cout << "The user does not have " << item << " in their inventory." << std::endl;
-		containsItem = false;
-	}
+	return numSteps;
+}
+
+bool Space::getLivingKey()
+{
+	return hasLivingKey;
+}
+
+bool Space::getAtticKey()
+{
+	return hasAtticKey;
+}
+
+bool Space::getOfficeKey()
+{
+	return hasOfficeKey;
+}
+
+bool Space::getPatioKey()
+{
+	return hasPatioKey;
+}
+
+bool Space::getBedroomKey()
+{
+	return hasBedroomKey;
 }

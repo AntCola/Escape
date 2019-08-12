@@ -15,10 +15,22 @@ class Game
 {
 private:
 	std::vector<Space*> listPtrs;
+	Space* kitchenPtr;
+	Space* livingRoomPtr;
+	Space* atticPtr;
+	Space* officePtr;
+	Space* bedroomPtr;
+	Space* patioPtr;
+	int totalSteps;
+	bool gameWon;
+	bool gameLost;
 public:
 	Game();
+	~Game();
 	void printPtrs();
 	void gameFlow();
+	void setGameWon(bool);
+	void setGameLost(bool);
 	
 };
 

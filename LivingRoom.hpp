@@ -8,7 +8,7 @@ class LivingRoom : public Space
 {
 public:
 	LivingRoom();
-	void interact();
+	int interact();
 };
 
 #endif
