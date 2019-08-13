@@ -1,7 +1,7 @@
 /*********************************************************************
 ** Program name: getNum.cpp
 ** Author: Anthony Colannino
-** Date: 7/21/2019
+** Date: 8/13/2019
 ** Description: Input validation function that takes in three
 ** parameters to allow for reusability. The first is a string that
 ** will allow for a user chosen prompt message, the next two

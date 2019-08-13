@@ -1,3 +1,10 @@
+/*********************************************************************
+** Program name: Game.hpp
+** Author: Anthony Colannino
+** Date: 8/13/2019
+** Description: Header file for Game.cpp.
+*********************************************************************/
+
 #ifndef GAME_HPP
 #define GAME_HPP
 #include "Space.hpp"
@@ -9,7 +16,6 @@
 #include "Kitchen.hpp"
 #include <vector>
 #include <iostream>
-
 
 class Game
 {

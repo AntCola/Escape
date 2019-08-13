@@ -1,3 +1,11 @@
+/*********************************************************************
+** Program name: Game.cpp
+** Author: Anthony Colannino
+** Date: 8/13/2019
+** Description: This contains the functions to control the
+** game flow of escape from voldemort's manor game.
+*********************************************************************/
+
 #include "Game.hpp"
 #include "Player.hpp"
 #include "Space.hpp"
@@ -5,6 +13,13 @@
 #include <iostream>
 #include "getNum.hpp"
 
+/****************************************************
+*				Game::Game
+* Game constructor that will initialize the linked
+* list game map as well as initialize the vector
+* that will contain the linked list for easy
+* deletion.
+****************************************************/
 Game::Game()
 {
 	kitchenPtr = new Kitchen();
@@ -44,6 +59,10 @@ Game::Game()
 
 }
 
+/****************************************************
+*				Game::~Game
+* Destructor that will delete the created linked list.
+****************************************************/
 Game::~Game()
 {
 	for (int i = 0; i < listPtrs.size(); i++)
@@ -52,6 +71,10 @@ Game::~Game()
 	}
 }
 
+/****************************************************
+*				Game::printPtrs
+* Print function to allow for testing.
+****************************************************/
 void Game::printPtrs()
 {
 	for (int i = 0; i < listPtrs.size(); i++)
@@ -64,16 +87,29 @@ void Game::printPtrs()
 	}
 }
 
+/****************************************************
+*				Game::setGameLost
+* Setter for game status.
+****************************************************/
 void Game::setGameLost(bool status)
 {
 	gameLost = status;
 }
 
+/****************************************************
+*				Game::setGameWon
+* Setter for game status.
+****************************************************/
 void Game::setGameWon(bool status)
 {
 	gameWon = status;
 }
 
+/****************************************************
+*				Game::GameFlow
+* Function to control the flow of the game. Most game
+* actions are made here.
+****************************************************/
 void Game::gameFlow()
 {
 	std::cout << "Welcome to Escape from Voldemort's Manor!! Here are the directions." << std::endl;
@@ -263,24 +299,24 @@ void Game::gameFlow()
 				std::cout << "You are in the office." << std::endl;
 				std::cout << "You currently have a key to the patio." << std::endl;
 				int userChoice = getNum("Enter '1' to enter the patio or '2' to search the office more.", 1, 2);
-				if (userChoice == 1)
+				if (userChoice == 1) //Enter patio
 				{
 					player1.setUserLocation(patioPtr);
 				}
-				else if (userChoice == 2)
+				else if (userChoice == 2) //Search office more
 				{
 					totalSteps = officePtr->interact();
 
-					if (officePtr->getBedroomKey())
+					if (officePtr->getBedroomKey()) //Found bedroom key
 					{
 						player1.addInventory("Bedroom Key");
 						std::cout << "You have both the bedroom key and the patio key now." << std::endl;
 						int userChoice2 = getNum("Enter '1' to enter the bedroom or '2' to enter the patio.", 1, 2);
-						if (userChoice2 == 1)
+						if (userChoice2 == 1) //Enter bedroom
 						{
 							player1.setUserLocation(bedroomPtr);
 						}
-						else if (userChoice2 == 2)
+						else if (userChoice2 == 2) //Enter patio
 						{
 							player1.setUserLocation(patioPtr);
 						}
@@ -292,40 +328,40 @@ void Game::gameFlow()
 				std::cout << "You are in the office" << std::endl;
 				std::cout << "You currently have a key to the bedroom." << std::endl;
 				int userChoice = getNum("Enter '1' to enter the bedroom or '2' to search the office more.", 1, 2);
-				if (userChoice == 1)
+				if (userChoice == 1) //Enter bedroom
 				{
 					player1.setUserLocation(bedroomPtr);
 				}
-				else if (userChoice == 2)
+				else if (userChoice == 2) //Search more
 				{
 					totalSteps = officePtr->interact();
 
-					if (officePtr->getPatioKey())
+					if (officePtr->getPatioKey()) //Got patio key
 					{
 						player1.addInventory("Patio Key");
 						std::cout << "You have both the bedroom key and the patio key now." << std::endl;
 						int userChoice2 = getNum("Enter '1' to enter the bedroom or '2' to enter the patio", 1, 2);
-						if (userChoice2 == 1)
+						if (userChoice2 == 1) //Enter bedroom
 						{
 							player1.setUserLocation(bedroomPtr);
 						}
-						else if (userChoice2 == 2)
+						else if (userChoice2 == 2) //Enter patio
 						{
 							player1.setUserLocation(patioPtr);
 						}
 					}
 				}
 			}
-			else if (officePtr->getBedroomKey() && officePtr->getPatioKey())
+			else if (officePtr->getBedroomKey() && officePtr->getPatioKey()) //Has both keys
 			{
 				std::cout << "You are in the office" << std::endl;
 				std::cout << "You have both the patio key and the bedroom key. This is all the office has to offer." << std::endl;
 				int userChoice = getNum("Enter '1' to enter the patio or '2' to enter the bedroom.", 1, 2);
-				if (userChoice == 1)
+				if (userChoice == 1) //Enter patio
 				{
 					player1.setUserLocation(patioPtr);
 				}
-				else if (userChoice == 2)
+				else if (userChoice == 2) //Enter bedroom
 				{
 					player1.setUserLocation(bedroomPtr);
 				}
@@ -333,7 +369,7 @@ void Game::gameFlow()
 
 		}
 		
-		else if (player1.getUserLocation() == bedroomPtr)
+		else if (player1.getUserLocation() == bedroomPtr) //User in bedroom
 		{
 			std::cout << "You are in the bedroom. There is nothing to be found in this room, you have wasted 3 steps entering this room." << std::endl;
 			std::cout << "You leave the bedroom and head back into the office." << std::endl;
@@ -347,15 +383,15 @@ void Game::gameFlow()
 	
 	int winner = patioPtr->interact();
 
-	if (totalSteps >= 50)
+	if (totalSteps >= 50) //User took too many steps
 	{
 		std::cout << "You have taken too many steps and lost the game.";
 	}
-	else if (winner == 1)
+	else if (winner == 1) //User died to voldemort
 	{
 		std::cout << "Thank you for playing, better luck next time." << std::endl;
 	}
-	else if (winner == 2)
+	else if (winner == 2) //User wins
 	{
 		std::cout << "CONGRATS YOU WIN!!!" << std::endl;
 	}

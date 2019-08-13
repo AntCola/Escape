@@ -1,3 +1,10 @@
+/*********************************************************************
+** Program name: Player.hpp
+** Author: Anthony Colannino
+** Date: 8/13/2019
+** Description: Header file for Player.cpp
+*********************************************************************/
+
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 #include "Space.hpp"

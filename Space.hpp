@@ -1,3 +1,10 @@
+/*********************************************************************
+** Program name: Space.hpp
+** Author: Anthony Colannino
+** Date: 8/13/2019
+** Description: Header file for Space.hpp.
+*********************************************************************/
+
 #ifndef SPACE_HPP
 #define SPACE_HPP
 #include <string>
@@ -11,9 +18,7 @@ protected:
 	Space* down;
 	Space* right;
 	Space* left;
-	int goldPieces;
 	std::string roomName;
-	std::vector<std::string> inventory;
 	int numSteps;
 	bool hasLivingKey;
 	bool hasAtticKey;
@@ -22,7 +27,6 @@ protected:
 	bool hasPatioKey;
 public:
 	Space();
-	int getGP();
 	void setRight(Space*);
 	void setLeft(Space*);
 	void setUp(Space*);
